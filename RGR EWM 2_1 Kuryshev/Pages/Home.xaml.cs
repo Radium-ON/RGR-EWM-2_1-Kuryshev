@@ -101,13 +101,18 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                 catch (Exception)
                 {
                     textBoxResult.Visibility = Visibility.Hidden;
+                    var dlgException = new ModernDialog()
+                    {
+                        Title = "Ошибка ввода",
+                        Content = "Введите корректные данные",
+                    };
                     dlgException.ShowDialog();
                 }
             }
             else
             {
                 textBoxResult.Visibility = Visibility.Hidden;
-                ModernDialog dlgException = new ModernDialog()
+                var dlgException = new ModernDialog()
                 {
                     Title = "Ошибка ввода",
                     Content = "Введите первый или второй опоперанд!",
