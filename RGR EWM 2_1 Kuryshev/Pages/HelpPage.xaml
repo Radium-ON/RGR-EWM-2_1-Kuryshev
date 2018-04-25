@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="RGR_EWM_2_1_Kuryshev.HelpPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock Text="СИСТЕМНЫЕ ТРЕБОВАНИЯ" Style="{StaticResource Heading2}" />
+                <mui:BBCodeBlock Text="Операционная система Windows 7 SP1 и выше; Процессор: 1GHz; Оперативная память не менее 30 МВ; Свободное место на жестком диске: 20 МВ; Устройства ввода: клавиатура и мышь."/>
+                <TextBlock Text="ПОРЯДОК РАБОТЫ С ПРОГРАММОЙ" Style="{StaticResource Heading2}"/>
+                <TextBlock TextWrapping="Wrap">Программа предназначена для выполнения простых арифметических действий над числами в 6-ной системе счисления.<LineBreak/>Порядок работы с программой:<LineBreak/>При запуске программы введите в соответствующие поля числа, с которыми нужно выполнить оперции.<LineBreak/>Из выпадающего списка выберите необходимую арифметическую операцию.<LineBreak/>Для выполнения арифметической операции нажмите кнопку 'Решить'.<LineBreak/>Для сброса значений всех полей воспользуйтесь кнопкой "Очистить все поля".<LineBreak/>При возникновении ошибок в ходе работы с программой следуйте подсказкам системы.</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
