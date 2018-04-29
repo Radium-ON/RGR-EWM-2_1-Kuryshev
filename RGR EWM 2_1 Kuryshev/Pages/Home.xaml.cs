@@ -130,14 +130,11 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         }//нажатие кнопки!
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox textBox = sender as TextBox;
             textBoxValidation();
-            textboxFirstNum.MaxLength = 10;
+            textBox.MaxLength = 10;
         }
-        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            textBoxValidation();
-            textboxSecondNum.MaxLength = 10;
-        }
+        
         public bool textBoxValidation()
         {
             int operandLeft = 0;
