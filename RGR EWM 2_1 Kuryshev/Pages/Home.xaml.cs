@@ -29,7 +29,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         double c;
         double z;
         string c1;
-        private Regex regex = new Regex(@"^-?[0-5]*\,?[0-5]*$");//минус 0 или 1 в начале строки; числа 0-5, одна запятая, ещё числа 0-5
+        private Regex regex = new Regex(@"^\-0?[0-5]*\,?[0-5]*$");//(первый разряд не 0!)минус 0 или 1 в начале строки; числа 0-5, одна запятая, ещё числа 0-5
         ModernDialog dlgException = new ModernDialog()
         {
             Title="Ошибка ввода",
