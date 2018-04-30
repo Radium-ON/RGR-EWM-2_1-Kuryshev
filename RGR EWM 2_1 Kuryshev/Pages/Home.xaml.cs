@@ -139,7 +139,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                 var dlgException = new ModernDialog()
                 {
                     Title = "Ошибка ввода",
-                    Content = "Ошибка в " + (operandLeft=textBoxFirstNum.Text.Length+1) + " разряде первого операнда!",
+                    Content = "Ошибка в " + (operandLeft=textBoxFirstNum.Text.Length) + " разряде первого операнда!",
                 };
                 dlgException.ShowDialog();
 
@@ -157,7 +157,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                 var dlgException = new ModernDialog()
                 {
                     Title = "Ошибка ввода",
-                    Content = "Ошибка в " + (operandRight=textBoxSecondNum.Text.Length+1)+ " разряде первого операнда!",
+                    Content = "Ошибка в " + (operandRight=textBoxSecondNum.Text.Length)+ " разряде первого операнда!",
                 };
                 dlgException.ShowDialog();
 
