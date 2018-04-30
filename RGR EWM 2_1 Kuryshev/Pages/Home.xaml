@@ -18,13 +18,13 @@
                     <StackPanel x:Name="stackEnterFisrt" Margin="4">
                         <TextBlock Text="Введите первое число" Style="{StaticResource Heading2}"/>
                         <TextBlock Text="(в 6-чной сс)" Style="{StaticResource Small}"/>
-                        <TextBox x:Name="textboxFirstNum"  Text="" TextChanged="textBox_TextChanged"
+                        <TextBox x:Name="textBoxFirstNum"  Text="" TextChanged="textBoxFirstNum_TextChanged"
                              ToolTip="В 6-чной системе используются цифры : &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;. "/>
                     </StackPanel>
                     <StackPanel x:Name="stackEnterSecond" Margin="4">
                         <TextBlock Text="Введите второе число" Style="{StaticResource Heading2}"/>
                         <TextBlock Text="(в 6-чной сс)" Style="{StaticResource Small}"/>
-                        <TextBox x:Name="textboxSecondNum" Text="" TextChanged="textBox1_TextChanged"
+                        <TextBox x:Name="textBoxSecondNum" Text="" TextChanged="textBoxSecondNum_TextChanged"
                              ToolTip="В 6-чной системе используются цифры : &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;. "/>
                     </StackPanel>
                     <StackPanel x:Name="stackResult" Margin="4">

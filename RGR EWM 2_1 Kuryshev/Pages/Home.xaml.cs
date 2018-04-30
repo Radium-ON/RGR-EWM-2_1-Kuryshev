@@ -29,11 +29,13 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         double c;
         double z;
         string c1;
+        private Regex regex = new Regex(@"^-?[0-5]*\,?[0-5]*$");//минус 0 или 1 в начале строки; числа 0-5, одна запятая, ещё числа 0-5
         ModernDialog dlgException = new ModernDialog()
         {
             Title="Ошибка ввода",
             Content= "Введите корректные данные",
         };
+
         public Home()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         }
         public void buttonConvert_Click(object sender, RoutedEventArgs e)
         {
-            if (textboxFirstNum.Text != String.Empty && textboxSecondNum.Text != String.Empty)
+            if (textBoxFirstNum.Text != String.Empty && textBoxSecondNum.Text != String.Empty)
             {
                 try
                 {
@@ -54,8 +56,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                     switch (combobox.SelectedIndex)
                     {
                         case 1:
-                            FirstNumber = textboxFirstNum.Text;
-                            SecondNumber = textboxSecondNum.Text;
+                            FirstNumber = textBoxFirstNum.Text;
+                            SecondNumber = textBoxSecondNum.Text;
                             a1 = TripToDec(FirstNumber);
                             b1 = TripToDec(SecondNumber);
                             c = a1 + b1;
@@ -64,8 +66,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                             textBoxResult.Text = c1;
                             break;
                         case 2:
-                            FirstNumber = textboxFirstNum.Text;
-                            SecondNumber = textboxSecondNum.Text;
+                            FirstNumber = textBoxFirstNum.Text;
+                            SecondNumber = textBoxSecondNum.Text;
                             a1 = TripToDec(FirstNumber);
                             b1 = TripToDec(SecondNumber);
                             c = a1 - b1;
@@ -74,8 +76,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                             textBoxResult.Text = Convert.ToString(c1);
                             break;
                         case 3:
-                            FirstNumber = textboxFirstNum.Text;
-                            SecondNumber = textboxSecondNum.Text;
+                            FirstNumber = textBoxFirstNum.Text;
+                            SecondNumber = textBoxSecondNum.Text;
                             a1 = TripToDec(FirstNumber);
                             b1 = TripToDec(SecondNumber);
                             c = a1 * b1;
@@ -84,8 +86,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                             textBoxResult.Text = Convert.ToString(c1);
                             break;
                         case 4:
-                            FirstNumber = textboxFirstNum.Text;
-                            SecondNumber = textboxSecondNum.Text;
+                            FirstNumber = textBoxFirstNum.Text;
+                            SecondNumber = textBoxSecondNum.Text;
                             a1 = TripToDec(FirstNumber);
                             b1 = TripToDec(SecondNumber);
                             c = a1 / b1;
@@ -123,20 +125,48 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         }
         private void buttonClear_Click(object sender, RoutedEventArgs e)
         {
-            textboxFirstNum.Clear();
-            textboxSecondNum.Clear();
+            textBoxFirstNum.Clear();
+            textBoxSecondNum.Clear();
             textBoxResult.Clear();
             combobox.SelectedIndex = 0;
         }//нажатие кнопки!
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void textBoxFirstNum_TextChanged(object sender, TextChangedEventArgs e)
         {
-            textBoxValidation();
-            textboxFirstNum.MaxLength = 10;
+            int operandLeft = 0;
+            Match match = regex.Match(textBoxFirstNum.Text);
+            if (!match.Success && textBoxFirstNum.Text != "")//проверка ввода регулярным выражением
+            {
+                var dlgException = new ModernDialog()
+                {
+                    Title = "Ошибка ввода",
+                    Content = "Ошибка в " + (operandLeft=textBoxFirstNum.Text.Length+1) + " разряде первого операнда!",
+                };
+                dlgException.ShowDialog();
+
+                textBoxFirstNum.Text = textBoxFirstNum.Text.Remove(textBoxFirstNum.Text.Length - 1);
+                textBoxFirstNum.Select(textBoxFirstNum.Text.Length, 0);
+            }
+            //textBoxValidation();
+            textBoxFirstNum.MaxLength = 10; 
         }
-        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        private void textBoxSecondNum_TextChanged(object sender, TextChangedEventArgs e)
         {
-            textBoxValidation();
-            textboxSecondNum.MaxLength = 10;
+            int operandRight = 0;
+            Match match = regex.Match(textBoxSecondNum.Text);
+            if (!match.Success && textBoxSecondNum.Text != "")//проверка ввода регулярным выражением
+            {
+                var dlgException = new ModernDialog()
+                {
+                    Title = "Ошибка ввода",
+                    Content = "Ошибка в " + (operandRight=textBoxSecondNum.Text.Length+1)+ " разряде первого операнда!",
+                };
+                dlgException.ShowDialog();
+
+                textBoxSecondNum.Text = textBoxSecondNum.Text.Remove(textBoxSecondNum.Text.Length - 1);
+                textBoxSecondNum.Select(textBoxSecondNum.Text.Length, 0);
+            }
+            //textBoxValidation();
+            textBoxSecondNum.MaxLength = 10;
         }
         public bool textBoxValidation()
         {
@@ -146,9 +176,9 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
             bool verifyLeft = true; // проверка первого числа 
             bool verifyRight = true; // проверка второго числа 
 
-            for (int i = 0; i < textboxFirstNum.Text.Length; i++)
+            for (int i = 0; i < textBoxFirstNum.Text.Length; i++)
             {
-                if ((textboxFirstNum.Text[i] > '5') || (textboxFirstNum.Text[i] == '.'))
+                if ((textBoxFirstNum.Text[i] > '5') || (textBoxFirstNum.Text[i] == '.'))
                 {
                     operandLeft = i + 1;
                     verifyLeft = false;
@@ -157,9 +187,9 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                 }
             }
 
-            for (int i = 0; i < textboxSecondNum.Text.Length; i++)
+            for (int i = 0; i < textBoxSecondNum.Text.Length; i++)
             {
-                if ((textboxSecondNum.Text[i] > '5') || (textboxSecondNum.Text[i] == '.'))
+                if ((textBoxSecondNum.Text[i] > '5') || (textBoxSecondNum.Text[i] == '.'))
                 {
                     operandRight = i + 1;
                     verifyBoth = true;
@@ -192,7 +222,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
             }
 
             return verifyBoth;
-        }
+        }//исключён
         static double TripToDec(string FloatNumber)
         {
             string[] floatNumber = FloatNumber.Split(',');
