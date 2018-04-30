@@ -146,7 +146,6 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                 textBoxFirstNum.Text = textBoxFirstNum.Text.Remove(textBoxFirstNum.Text.Length - 1);
                 textBoxFirstNum.Select(textBoxFirstNum.Text.Length, 0);
             }
-            //textBoxValidation();
             textBoxFirstNum.MaxLength = 10; 
         }
         private void textBoxSecondNum_TextChanged(object sender, TextChangedEventArgs e)
@@ -165,64 +164,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                 textBoxSecondNum.Text = textBoxSecondNum.Text.Remove(textBoxSecondNum.Text.Length - 1);
                 textBoxSecondNum.Select(textBoxSecondNum.Text.Length, 0);
             }
-            //textBoxValidation();
             textBoxSecondNum.MaxLength = 10;
         }
-        public bool textBoxValidation()
-        {
-            int operandLeft = 0;
-            int operandRight = 0;
-            bool verifyBoth = true;
-            bool verifyLeft = true; // проверка первого числа 
-            bool verifyRight = true; // проверка второго числа 
-
-            for (int i = 0; i < textBoxFirstNum.Text.Length; i++)
-            {
-                if ((textBoxFirstNum.Text[i] > '5') || (textBoxFirstNum.Text[i] == '.'))
-                {
-                    operandLeft = i + 1;
-                    verifyLeft = false;
-                    verifyBoth = true;
-                    break;
-                }
-            }
-
-            for (int i = 0; i < textBoxSecondNum.Text.Length; i++)
-            {
-                if ((textBoxSecondNum.Text[i] > '5') || (textBoxSecondNum.Text[i] == '.'))
-                {
-                    operandRight = i + 1;
-                    verifyBoth = true;
-                    verifyRight = false;
-                    break;
-                }
-            }
-
-            if ((verifyLeft == false) && (verifyRight == true))
-            {
-                var dlgException = new ModernDialog()
-                {
-                    Title = "Ошибка ввода",
-                    Content = "Ошибка в " + operandLeft + " элементе первого операнда!",
-                };
-                dlgException.ShowDialog();
-                MessageBox.Show("Разрешенные знаки - \"0\" \"1\" \"2\" \"3\" \"4\" \"5\"\",\" !", "Подсказка!", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
-
-            if ((verifyLeft == true) && (verifyRight == false))
-            {
-                var dlgException = new ModernDialog()
-                {
-                    Title = "Ошибка ввода",
-                    Content = "Ошибка в " + operandRight + " элементе первого операнда!",
-                };
-                dlgException.ShowDialog();
-                return false;
-            }
-
-            return verifyBoth;
-        }//исключён
         static double TripToDec(string FloatNumber)
         {
             string[] floatNumber = FloatNumber.Split(',');
