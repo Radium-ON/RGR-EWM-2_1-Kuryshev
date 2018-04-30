@@ -39,6 +39,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         public Home()
         {
             InitializeComponent();
+            textBoxFirstNum.Focus();//фокус в блок левого операнда
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
