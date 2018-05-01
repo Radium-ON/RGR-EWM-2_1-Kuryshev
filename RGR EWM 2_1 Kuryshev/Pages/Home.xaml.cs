@@ -59,8 +59,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                         case 1:
                             FirstNumber = textBoxFirstNum.Text;
                             SecondNumber = textBoxSecondNum.Text;
-                            a1 = TripToDec(FirstNumber);
-                            b1 = TripToDec(SecondNumber);
+                            a1 = SextupleToDecimal(FirstNumber);
+                            b1 = SextupleToDecimal(SecondNumber);
                             c = a1 + b1;
                             z = c;
                             c1 = Convert.ToString(DecToTrip(z));
@@ -69,8 +69,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                         case 2:
                             FirstNumber = textBoxFirstNum.Text;
                             SecondNumber = textBoxSecondNum.Text;
-                            a1 = TripToDec(FirstNumber);
-                            b1 = TripToDec(SecondNumber);
+                            a1 = SextupleToDecimal(FirstNumber);
+                            b1 = SextupleToDecimal(SecondNumber);
                             c = a1 - b1;
                             z = c;
                             c1 = Convert.ToString(DecToTrip(z));
@@ -79,8 +79,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                         case 3:
                             FirstNumber = textBoxFirstNum.Text;
                             SecondNumber = textBoxSecondNum.Text;
-                            a1 = TripToDec(FirstNumber);
-                            b1 = TripToDec(SecondNumber);
+                            a1 = SextupleToDecimal(FirstNumber);
+                            b1 = SextupleToDecimal(SecondNumber);
                             c = a1 * b1;
                             z = c;
                             c1 = Convert.ToString(DecToTrip(z));
@@ -89,8 +89,8 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
                         case 4:
                             FirstNumber = textBoxFirstNum.Text;
                             SecondNumber = textBoxSecondNum.Text;
-                            a1 = TripToDec(FirstNumber);
-                            b1 = TripToDec(SecondNumber);
+                            a1 = SextupleToDecimal(FirstNumber);
+                            b1 = SextupleToDecimal(SecondNumber);
                             c = a1 / b1;
                             z = c;
                             c1 = Convert.ToString(DecToTrip(z));
@@ -167,7 +167,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
             }
             textBoxSecondNum.MaxLength = 10;
         }
-        static double TripToDec(string FloatNumber)
+        static double SextupleToDecimal(string FloatNumber)
         {
             string[] floatNumber = FloatNumber.Split(',');
             int IntegerPart = Convert.ToInt32(floatNumber[0]);
@@ -184,7 +184,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
 
             try
             {
-                FractionalPart = floatNumber[1].ToString();//поменял в коде 3 на 6!
+                FractionalPart = floatNumber[1].ToString();
                 for (int j = 0; j < 5; j++)
                 {
                     Res += (int)(FractionalPart[j] - 48) * Math.Pow(6, -(j + 1)); // перевод вещественой части в 10-ю систему
@@ -203,7 +203,7 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
             return res;
         }
 
-        /*--------------Перевод из 10 в 3 --------------------*/
+        /*--------------Перевод из 10 в 6 --------------------*/
         static double DecToTrip(double FloatNumber)
         {
             string[] floatNumber = FloatNumber.ToString().Split(',');
