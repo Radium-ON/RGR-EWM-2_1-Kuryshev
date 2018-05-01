@@ -39,7 +39,6 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
         public Home()
         {
             InitializeComponent();
-            textBoxFirstNum.Focus();//фокус в блок левого операнда
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -276,6 +275,11 @@ namespace RGR_EWM_2_1_Kuryshev.Pages
             else { Otvet = Convert.ToDouble(otvet); }
             return Otvet;
 
+        }
+
+        private void textBoxFirstNum_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBoxFirstNum.Focus();
         }
     }
 }

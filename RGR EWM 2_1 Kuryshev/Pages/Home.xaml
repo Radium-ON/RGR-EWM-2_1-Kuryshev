@@ -18,7 +18,7 @@
                     <StackPanel x:Name="stackEnterFisrt" Margin="4">
                         <TextBlock Text="Введите первое число" Style="{StaticResource Heading2}"/>
                         <TextBlock Text="(в 6-чной сс)" Style="{StaticResource Small}"/>
-                        <TextBox x:Name="textBoxFirstNum"  Text="" TextChanged="textBoxFirstNum_TextChanged"
+                        <TextBox x:Name="textBoxFirstNum"  Text="" TextChanged="textBoxFirstNum_TextChanged" Loaded="textBoxFirstNum_Loaded"
                              ToolTip="В 6-чной системе используются цифры : &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;. "/>
                     </StackPanel>
                     <StackPanel x:Name="stackEnterSecond" Margin="4">
@@ -29,7 +29,7 @@
                     </StackPanel>
                     <StackPanel x:Name="stackResult" Margin="4">
                         <TextBlock Text="Результат" Style="{StaticResource Heading2}"/>
-                        <TextBox x:Name="textBoxResult" IsEnabled="False" Text="" Style="{StaticResource Heading2}" Visibility="Hidden"/>
+                        <TextBox x:Name="textBoxResult" IsEnabled="False" Text="" Visibility="Hidden"/>
                     </StackPanel>
                 </WrapPanel>
                 <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left">
